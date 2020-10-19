@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block cuerpo %}
+    {% if categoria %}
+        <h1>Publicaciones en {{ categoria.descripcion }}</h1>
+        {% for new in categoria.publicacion_set.all %}
+            <div>
+                <h1><a href="{% url 'blog:ver_publicacion' new.id %}">{{new.titulo}}</a><br>
+                <p>
+                    {{ new.contenido|truncatechars:250 }} <br>
+                    {{ new.autor.get_full_name }} publicado: {{ new.f_pub }}
+                    {% for new in categoria.publicacion_set.all %}
+                        <a href="{% url 'blog:ver_publicacion_categoria' categoria.id %}">{{ categoria.descripcion }}<a> 
+                    {% endfor %}
+                </p>
+            </div>
+            {% endfor %}
+
+        {% else %}
+            
+            {% for new in news %}
+                <div>
+                    <h2><a href=" {% url 'blog:ver_publicacion' new.id %}">{{ new.titulo }}</a></h2> <br>
+                    <p>
+                        {{ new.contenido|truncatechars:250 }} <br>
+                        {{ new.autor.get_full_name }} publicacion; {{ new.f_pub }}
+
+                        {% for categoria in new.categoria %}
+                            <a href="{% url blog:ver_publicacion_categoria' categoria.id}">{{ categoria.descripcion }}</a>
+                        {% endfor %}
+
+                    </p>
+                </div>
+            {% endfor %}
+        {% endif %}
+           
+{% endblock %}

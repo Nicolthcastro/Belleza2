@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Woman's Fashion{% endblock %}
+
+{% block cuerpo %
+        {% if categoria %}
+            <h1 align="center" class="card-panel cyan darken-4 white text hoverable">Set MakeOver {{ categoria.descripcion }}
+            </h1>
+                {% for new in categoria.publicacion_set.all %}
+                    <div>
+                        <a href="{% url 'blog:ver_publicacion' new.id %}">
+                            <h2 align="center" class="black-text">{{ new.titulo }}</h2>
+                        </a>
+                    </div>
+                    <div align="center">
+                        {{ new.contenido|truncatechars:250 }} <br>
+                        <img class="responsive-img" src=" {{ new.imagen.url }} " height="10000">
+                    </div>
+                    <hr size="100" color="black">
+            {% endfor %}
+        {% endif %}           
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+
+   <head>
+      <!--Compiled and minifield CCS-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <img src="https://scontent.ftgu2-2.fna.fbcdn.net/v/t1.0-9/120428797_803425717085483_1356235267149845950_o.jpg?_nc_cat=103&_nc_sid=730e14&_nc_ohc=a7EZNg2FCyQAX-5kjWQ&_nc_ht=scontent.ftgu2-2.fna&oh=915383bf7898ae1ec319ad43b0eb766d&oe=5F972F1E" 
+      alt="Blog de belleza :: The Beauty Blog " data-at2x="https://scontent.ftgu2-2.fna.fbcdn.net/v/t1.0-9/120428797_803425717085483_1356235267149845950_o.jpg?_nc_cat=103&_nc_sid=730e14&_nc_ohc=a7EZNg2FCyQAX-5kjWQ&_nc_ht=scontent.ftgu2-2.fna&oh=915383bf7898ae1ec319ad43b0eb766d&oe=5F972F1E" 
+      width="1010" height="200">
+      <nav>
+        <div class='nav-wrapper black'>
+           <a href="{% url 'blog:listar_publicaciones' %}" class='brand-logo'>Woman's Fashion</a>
+
+            <a href='#' data-target="menu-chico" class="sidenav-trigger"><i class='material-icons'>menu</i></a>
+
+           <ul id='nav-mobile' class='right hide-on-med-and-down'>
+              <li><a href="{% url 'blog:listar_publicaciones' %}">Maquillaje</a></li>    
+              <li><a href="{% url 'blog:listar_publicaciones' %}">Cabello</a></li>
+              <li><a href="{% url 'blog:listar_publicaciones' %}">Cremas</a></li>
+              <li><a href="{% url 'blog:listar_publicaciones' %}">Cuerpo</a></li>
+           </ul>
+        </div>
+
+        <ul class='sidenav' id='menu-chico'>
+         <li><a href="{% url 'blog:listar_publicaciones' %}">Maquillaje</a></li>    
+         <li><a href="{% url 'blog:listar_publicaciones' %}">Cabello</a></li>
+         <li><a href="{% url 'blog:listar_publicaciones' %}">Cremas</a></li>
+         <li><a href="{% url 'blog:listar_publicaciones' %}">Cuerpo</a></li>
+        </ul>
+
+     </nav>        <h2><a href="http://belletica.com/blog/set-de-maquillaje-low-cost/">Set de maquillaje low cost: los productos más asequibles para todos los bolsillos</a></h2>
+
+    
+        <p class="post-meta">Creado por <a href="http://belletica.com/blog/author/ajimenez/" title="Creados por Nicolth" rel="author">Nicolth</a></p>					<p>¡Hola! ¿Qué tal estáis? Volvemos una semana más, esta vez para hacer un post especial. Hoy no vamos a hablar de ninguna técnica nueva, sino que vamos a llenar tu set de maquillaje al completo por menos de 3o euros. ¿Te gusta la idea? Encontrarás tres opciones diferentes, que dependerán del presupuesto final que tengas. ¡Sigue leyendo! &nbsp; Set de maquillaje básico por menos de 10 euros No hace falta tener un gran presupuesto para ir...</p>						
+    </div>
+      <body background="https://i.pinimg.com/736x/15/19/6f/15196f27bb44d99b94e99d8c6b89db0d.jpg"></body>
+      <div align="center"><img src="https://i.ebayimg.com/thumbs/images/g/NyoAAOSwmphaTFgz/s-l225.jpg"
+         width="300" height="300"></div>
+       <div class='container' style='padding-bottom:2em' >
+
+       {% block cuerpo %}
+           
+       <div align="center">Paleta de maquillaje Miss Rose</div>     
+
+       {% endblock %}
+
+      </div>
+
+       <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             var elems = document.querySelectorAll('.carousel');
+             var instances = M.carousel-darkinit(elems, options);
+          });
+    
+          // Or with jQuery
+    
+          $(document).ready(function(){
+             $('.carousel').carousel();
+          });         
+          
+       </script>         
+
+
+      </div>
+
+      <footer class='pago-footer black white-text'>
+         <div aling='center' style='padding:2em'>
+             Woman's Fashion © Todos los derechos reservados
+         </div>
+      </footer>
+  </body>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <!--AddToAny BEGIN-->
+   <script async src="https://static.addtoany.com/menu/page.js"></script>
+   <!--AddToAny END-->      
+
+   </body>
+</html>
+           

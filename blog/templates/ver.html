@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block cuerpo %} {{ pub.titulo|truncatechars:30 }} | NY Times {% endblock %}
+
+{% block cuerpo %}
+
+    <h1> {{ pub.titulo }} </h1>
+    <p aling='justify'>
+        {{ pub.contenido }} 
+    </p>
+    {{ new.autor.gey_full_name }} publicado: {{ new.f_pub }}
+
+    <div class='aZa_kit aZa_kit_site_32 aZa_default_style'>
+        <a class='aZa_buttom_facebook'></a>
+        <a class='aZa_buttom_twitter'></a>
+        <a class='aZa_buttom_email'></a>
+        <a class='aZa_buttom_whatsapp'></a>
+        <a class='aZa_buttom_line'></a>
+        <a class='aZa_buttom_copy_link'></a>
+    </div>
+{% endblock %}
